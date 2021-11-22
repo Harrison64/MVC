@@ -1,24 +1,41 @@
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Actualizar usuario</title>
+        <link href="../css/efi.css" rel="stylesheet" type="text/css">
     </head>
     <body>
 
         <h1>Actualizar usuario</h1>
-        <form method="get">
-            <input type='hidden' name='per_id' value="" /><p></p>
-        Nombre : <input type='text' name='per_nombre' value="" /><p></p>
-        Apellidos : <input type='text' name='per_apellido' value="" /><p></p>
-        Fecha de nacimiento : <input type='date' name='per_fecha_nacimiento' value="" /><p></p>
-        Direccion : <input type='text' name='per_direccion' value="" /><p></p>
-        Correo : <input type='text' name='per_correo' value="" /><p></p>
-        Genero : <input type='text' name='per_genero' value="" /><p></p>
-        Usuario : <input type='text' name='usu_login' value=""/><p></p>
-        Clave : <input type='text' name='usu_clave' value="" /><p></p>
+        <form method="PUT">
+        <input type='hidden' name='per_id' value="" />
+        
+        <label for="per_nombre">Nombre :</label>
+        <input type="text" name="per_nombre" />
+
+        <label for="per_apellido">Apellidos :</label>
+        <input type="text" name="per_apellido" />
+
+        <label for="per_fecha_nacimiento">Fecha de nacimiento :</label>
+        <input type="date" name="per_fecha_nacimiento" />
+
+        <label for="per_direccion">Direccion :</label>
+        <input type="text" name="per_direccion" />
+        
+        <label for="per_correo">Correo :</label>
+        <input type="text" name="per_correo" />
+
+        <label for="per_genero">Genero:</label>
+        <input type="text" name="per_genero" />
+
+        <label for="usu_login">Usuario :</label>
+        <input type="text" name="usu_login" />
+
+        <label for="usu_clave">Clave :</label>
+        <input type="text" name="usu_clave" />
+
         <input type="submit" name="btn_comando" value="Actualizar" formaction="pagina02.html" /> 
-        <input name="btn_comando" type="submit" value="Volver" formaction="index.html"/>  
+        <input name="btn_comando" type="submit" value="Volver" formaction="pagina02.html"/>  
 </form>
 </body>
 </html>
