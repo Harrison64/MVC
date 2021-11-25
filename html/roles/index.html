@@ -6,31 +6,22 @@
 </head>
     <body>
         <h1>Roles:</h1>
-        <form  method="POST" name="frm_rol">
-            <table>
-                <caption>Roles</caption>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                    </tr>
-                    <tr>
-                        <td><input name="rol_id" value="0" type="radio"></td>
-                        <td>Rol Ejemplo 1</td>
-                        <td>Descripcion Rol Ejemplo 1</td>
-                    </tr>
-                    <tr>
-                        <td><input name="rol_id" value="1" type="radio"></td>
-                        <td>Rol Ejemplo 2</td>
-                        <td>Descripcion Rol Ejemplo 2</td>
-                    </tr>
-                </tbody>
-            </table>
-			<input type="submit" name="btn_comando" value="Añadir" formaction="pagina03.html">
+        <form>
+            <fieldset>
+            <label for="hm">Rol ejemplo 1:</label>
+              <input type="radio" name="hm" value=1>Descripcion Rol ejemplo 1
+            
+            <label for="hm2">Rol ejemplo 2:</label>
+                <input type="radio" name="hm2" value=2>Descripcion Rol ejemplo 2
+              
+            
+            </fieldset>   
+           
+            <input type="submit" name="btn_comando" value="A&ntilde;adir" formaction="pagina03.html">
 			<input type="submit" name="btn_comando" value="Eliminar" formaction="index.html">
 			<input type="submit" name="btn_comando" value="Modificar" formaction="pagina02.html">
-			<input type="submit" name="btn_comando" value="Permisos Acceso" formaction="pagina04.html">
+			<input type="submit" name="btn_comando" value="Permisos Acceso" formaction="pagina04.html"></p>
+           
         </form>
-    </body>
-</html>
+
+
