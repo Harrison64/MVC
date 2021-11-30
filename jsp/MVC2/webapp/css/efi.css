@@ -1,0 +1,130 @@
+form{
+    background-color: rgba(0,0,0,0.13);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.1);
+    padding: 30px 20px;
+    margin:auto;
+}
+
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #000;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3{
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+fieldset label{
+    display: inline;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+input{
+    /* display: block; */
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+input[type="radio" i] {
+    display: inline;
+    height: 14px;
+    width: 100%;
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: initial;
+    border: initial;
+}
+
+select {
+    display: block;
+    height: 30px;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+::placeholder{
+    color:rgba(255, 255, 255, 0.75);;
+}
+
+button{
+    margin-top: 15px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    color: #ffffff;
+    background: #3498db;
+}
+
+/* form fieldset  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+form fieldset  {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+input[type="submit" i] {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit" i]:hover {
+    color: #ffffff;
+    background: #3498db;
+}
