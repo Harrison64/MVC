@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Usuarios registrados</title>
+        <link href="../css/efi.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Usuarios registrados</h1>
+        <form name="frmusuarios" method="POST">
+        <%    
+        String user;
+        String criterio;
+       
+        user=request.getParameter("buscar");
+        criterio=request.getParameter("criterio");
+     
+        %>
+        Usuario:<%=user%><br>
+        Tipo:<%=criterio%><br>
+            <table >
+                    <tr>
+                        <th></th>
+                        <th>Codigo</th>
+                        <th>Nombre Usuario</th>
+                        <th>Apellido</th>
+
+                    </tr>
+                    <fieldset>
+                    <tr>
+                        <td><input type="radio" name="per_id"></td>
+                        <td>111</td>
+                        <td>Nombre usuario 1</td>
+                        <td>Apellido usuario 1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="per_id"></td>
+                        <td>222</td>
+                        <td>Nombre usuario 2</td>
+                        <td>Apellido usuario 2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="per_id"></td>
+                        <td>333</td>
+                        <td>Nombre usuario 3</td>
+                        <td>Apellido usuario 3</td>
+                    </tr>
+                    </fieldset>
+            </table>
+               
+            <input name="btn_comando" type="submit" value="Crear usuario" formaction="pagina03.jsp" /> 
+            <input name="btn_comando" type="submit" value="Eliminar" formaction="pagina02.jsp" />
+            <input name="btn_comando" type="submit" value="Actualizar Usuario" formaction="pagina04.jsp"/>
+            <input name="btn_comando" type="submit" value="Permisos de Acceso" formaction="pagina05.jsp" />
+        </form>
+        
+
+    </body>
+</html>
