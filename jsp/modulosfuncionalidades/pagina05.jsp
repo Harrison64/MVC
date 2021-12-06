@@ -1,55 +1,70 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="db.Conexion" %>
+<%@page import="java.sql.ResultSet"%>
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Funcionalidades</title>
+  <link rel="stylesheet" href="../css/efi.css">
 </head>
 <body>
+<%
+  Conexion con;
+  con = new Conexion();
+
+  String strSqlFun = "SELECT * FROM funcionalidad";
+  ResultSet rsFun = con.consultarSql(strSqlFun);
+
+
+  // Borrar
+  String fun_id = request.getParameter("fun_id");
+
+
+  if (fun_id != null) {
+    String strSqlFunDelete = "DELETE FROM funcionalidad WHERE fun_id = "+fun_id;
+    ResultSet sfd = con.consultarSql(strSqlFunDelete);
+    fun_id = null;
+  }
+  //Fin borrar
+%>
+<h2>Funcionalidades</h2>
+<form name="frm_funcionalidades" method="POST">
+
+  <table border="1">
+    <tr>
+      <th>Seleccionar</th>
+      <th>Nombre</th>
+      <th>Ruta</th>
+      <th>Descripcion</th>
+      <th>M&oacute;dulo</th>
+    </tr>
     <%
-    String mod_id;
-    mod_id = request.getParameter("mod_id");
+    while (rsFun.next()){%>
+    <tr>
+      <td>
+        <fieldset>
+          <input type="radio" name="fun_id" value="<%=rsFun.getString("fun_id")%>">
+        </fieldset>
+      </td>
+      <td><%=rsFun.getString("fun_nombre")%></td>
+      <td><%=rsFun.getString("fun_ruta")%></td>
+      <td><%=rsFun.getString("fun_descripcion")%></td>
+      <td><%=rsFun.getString("mod_id")%></td>
+    </tr>
+    <%
+      }
+      con.cerrar();
     %>
-    <h2>Funcionalidades</h2>
-    <form name="frm_funcionalidades" method="get">
+    </table>
+    <br>
+    <input type="submit" name="btn_accion" value="Crear" formaction="pagina06.jsp" />
+    <input type="submit" name="btn_accion" value="Eliminar" formaction="pagina05.jsp" />
+    <input type="submit" name="btn_accion" value="Actualizar" formaction="pagina08.jsp" />
 
-        <table border="1">
-            <tr>
-                <th>Nombre</th>
-                <th>Ruta</th>
-                <th>Descripcion</th>
+  <br>
 
-            </tr>
-            <tr>
-                <td><input type='radio' name='fun_id' value='0'/>Nombre 1</td>
-                <td>Ruta1</td>
-                <td>Descripcion1</td>
-            </tr>
-
-             <tr>
-                <td><input type='radio' name='fun_id' value='1'/>Nombre 2</td>
-                <td>Ruta2</td>
-                <td>Descripcion2</td>
-            </tr>
-
-              <tr>
-                <td><input type='radio' name='fun_id' value='2'/>Nombre 3</td>
-                <td>Ruta3</td>
-                <td>Descripcion3</td>
-            </tr>
-        </table>
-            <br>
-                <input type="submit" name="btn_accion" value="Crear" formaction="pagina06.jsp" />
-                <input type="submit" name="btn_accion" value="Eliminar" formaction="pagina07.jsp" />
-                <input type="submit" name="btn_accion" value="Actualizar" formaction="pagina08.jsp" />
-
-            <br>
-
-    </form>
+</form>
 </body>
 </html>

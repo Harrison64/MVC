@@ -1,31 +1,47 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="db.Conexion" %>
+<%@page import="java.sql.ResultSet"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Modulo V1</title>
+    <title>Actualizar funcionalidad</title>
+    <link rel="stylesheet" href="../css/efi.css">
 </head>
 <body>
-    <h2>Funcionalidad</h2>
-    <form name="frm_funcionalidad">
-        <input type="hidden" name="fun_id" value="" />
+<%
+    String fun_id = request.getParameter("fun_id");
+%>
+<h2>Funcionalidades</h2>
+<form name="frm_funcionalidades" method="POST">
+    <input type="hidden" name="fun_id" value="<%=fun_id%>"/>
+    <label>Nombre</label>
+    <input type="text" name="nombre" placeholder="Nombre" />
+    <label>Ruta</label>
+    <input type="text" name="ruta" placeholder="Ruta"/>
+    <label>Descrici&oacute;n</label>
+    <input type="text" name="descripcion" placeholder="Descripción"/>
+    <label>Módulo</label>
+    <input type="text" name="modulo" placeholder="M&oacute;dulo"/>
+    <input type="submit" name="btn_accion" value="Actualizar" formaction="pagina08.jsp" />
+</form>
+<%
+    Conexion con;
+    con = new Conexion();
 
-        <label for="nombre">Nombre</label>
-        <input type="text" name="fun_nombre" value="" />
+    //Inserción
+    String nombre_inser = request.getParameter("nombre");
+    String ruta_inser = request.getParameter("ruta");
+    String descripcion_inser = request.getParameter("descripcion");
+    String mod_inser = request.getParameter("modulo");
 
-        <label for="ruta">Ruta</label>
-        <input type="text" name="fun_ruta" value="" />
+    if (nombre_inser != null && descripcion_inser != null && ruta_inser != null){
+        String strSqlFuninsert2 = "UPDATE funcionalidad SET fun_id = "+fun_id+",fun_nombre = '"+nombre_inser+"',fun_ruta = '"+ruta_inser+"',fun_descripcion = '"+descripcion_inser+"',mod_id = "+mod_inser+" WHERE fun_id = "+fun_id;
+        ResultSet rsSmd = con.consultarSql(strSqlFuninsert2);
+        nombre_inser = descripcion_inser = ruta_inser = null;
+    }
 
-        <label for="descripcion">Descripci&oacute;n</label>
-        <input type="text" name="fun_descripcion" value="" />
-
-        <input type="hidden" name="mod_id" value="" />
-        <input type="submit" name="btn_accion" value="Enviar" formaction="index.html" />
-
-    </form>
+    con.cerrar();
+%>
 </body>
 </html>
