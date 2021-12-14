@@ -11,7 +11,7 @@
     %>
         <h1>Crear Usuario!</h1>
         
-        <form method="post"> 
+        <form method="post" action="pagina01.jsp"> 
             <label for="per_id">Codigo :</label>
             <input type="text" name="per_id" />
 
@@ -39,10 +39,10 @@
             <label for="usu_clave">Clave :</label>
             <input type="text" name="usu_clave" />
 
-            <input type="submit" name="btn_comando" value="insertar persona" formaction="pagina02.jsp"/> 
-            <input name="btn_comando" type="submit" value="Volver" formaction="pagina02.jsp"  /> 
-            <input name="resp_user" type="hidden" value="<%=user%>" formaction="pagina03.jsp" /> 
-            <input name="resp_criterio" type="hidden" value="<%=criterio%>" formaction="pagina03.jsp" /> 
+            <input type="submit" name="btn_comando" value="insertar persona"/> 
+            <input name="btn_comando" type="submit" value="Volver"/> 
+            <input name="resp_user" type="hidden" value="<%=user%>"/> 
+            <input name="resp_criterio" type="hidden" value="<%=criterio%>"/> 
         </form>
 
     </body>

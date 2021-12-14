@@ -1,3 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="db.Conexion" %>
+<%@page import="java.sql.ResultSet"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -5,10 +8,22 @@
         <link href="../css/efi.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+    <%
+        Conexion con;
+        con = new Conexion();
 
+        String per_id = request.getParameter("per_id");
+        String sqlInfo ="select per.per_id, per.per_nombre, per.per_apellido, per.per_fecha_nacimiento, per.per_direccion, per.per_correo, per.per_genero, usu.usu_login, usu.usu_clave from usuario as usu , persona as per where usu.per_id=per.per_id and per.per_id = "+per_id+"';";
+
+        ResultSet result = con.consultarSql(sqlInfo);
+
+        String user = request.getParameter("resp_user");
+        String criterio = request.getParameter("resp_criterio"); 
+   
+    %>
         <h1>Actualizar usuario</h1>
         <form method="PUT">
-        <input type='hidden' name='per_id' value="" />
+        <input type='hidden' name='per_id' value="<%=per_id%>" />
         
         <label for="per_nombre">Nombre :</label>
         <input type="text" name="per_nombre" />
@@ -36,6 +51,11 @@
 
         <input type="submit" name="btn_comando" value="Actualizar" formaction="pagina02.jsp" /> 
         <input name="btn_comando" type="submit" value="Volver" formaction="pagina02.jsp"/>  
+        <input name="resp_user" type="hidden" value="<%=user%>" formaction="pagina03.jsp" /> 
+        <input name="resp_criterio" type="hidden" value="<%=criterio%>" formaction="pagina03.jsp" /> 
+        <%
+        con.cerrar();
+        %>
 </form>
 </body>
 </html>
